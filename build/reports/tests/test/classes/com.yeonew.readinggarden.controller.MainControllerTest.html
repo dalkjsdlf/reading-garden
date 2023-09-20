@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - View 루트 컨트롤러</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>View 루트 컨트롤러</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.yeonew.readinggarden.controller.html">com.yeonew.readinggarden.controller</a> &gt; MainControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.012s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">[view][GET] 루트 페이지 -&gt; 게시글 리스트 (게시판) 페이지 Redirection</td>
+<td class="success">givenNothing_whenRequestingRootPage_thenRedirectsToArticlesPage()</td>
+<td class="success">0.012s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2023-09-19 06:45:37.401  INFO 17372 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.yeonew.readinggarden.controller.MainControllerTest], using SpringBootContextLoader
+2023-09-19 06:45:37.402  INFO 17372 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.yeonew.readinggarden.controller.MainControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-09-19 06:45:37.402  INFO 17372 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.yeonew.readinggarden.controller.MainControllerTest]: MainControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-09-19 06:45:37.415  INFO 17372 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.yeonew.readinggarden.ReadingGardenApplication for test class com.yeonew.readinggarden.controller.MainControllerTest
+2023-09-19 06:45:37.417  INFO 17372 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-09-19 06:45:37.426  INFO 17372 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@b13c600, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7ae5231c, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@642bfa5e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@574985d8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@42ff6af7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@11514c77, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2a93ad09, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@31ef9ac6, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@87ef6de, org.springframework.test.context.event.EventPublishingTestExecutionListener@13572152, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@249b2dd4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@696faa2b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@16d869de, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3caf87e6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4127f82a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@550d3cd7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4e3931]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.0)
+
+2023-09-19 06:45:37.484  INFO 17372 --- [    Test worker] c.y.r.controller.MainControllerTest      : Starting MainControllerTest using Java 17.0.5 on YEONEW-DESKTOP with PID 17372 (started by user in D:\workspace\project\reaing-garden)
+2023-09-19 06:45:37.484 DEBUG 17372 --- [    Test worker] c.y.r.controller.MainControllerTest      : Running with Spring Boot v2.7.0, Spring v5.3.20
+2023-09-19 06:45:37.484  INFO 17372 --- [    Test worker] c.y.r.controller.MainControllerTest      : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-09-19 06:45:38.171  INFO 17372 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-09-19 06:45:38.225 DEBUG 17372 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 3 mappings in 'requestMappingHandlerMapping'
+2023-09-19 06:45:39.192 DEBUG 17372 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-09-19 06:45:39.271  INFO 17372 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@585cbbde, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c2b5f27, org.springframework.security.web.context.SecurityContextPersistenceFilter@229e9280, org.springframework.security.web.header.HeaderWriterFilter@3b60f14c, org.springframework.security.web.csrf.CsrfFilter@46ab3c70, org.springframework.security.web.authentication.logout.LogoutFilter@713f5a17, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2cf065e9, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@d9fe131, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27946cee, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4c2bcea8, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@73dbb666, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cdadc3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a9bd6c7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1bf5745, org.springframework.security.web.session.SessionManagementFilter@3dc961f5, org.springframework.security.web.access.ExceptionTranslationFilter@915ac5c, org.springframework.security.web.access.intercept.AuthorizationFilter@7ba4591]
+2023-09-19 06:45:39.318 DEBUG 17372 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-09-19 06:45:39.329 DEBUG 17372 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-09-19 06:45:39.483  INFO 17372 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-09-19 06:45:39.484  INFO 17372 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-09-19 06:45:39.485  INFO 17372 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-09-19 06:45:39.499  INFO 17372 --- [    Test worker] c.y.r.controller.MainControllerTest      : Started MainControllerTest in 2.068 seconds (JVM running for 19.52)
+2023-09-19 06:45:39.508 DEBUG 17372 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.yeonew.readinggarden.controller.MainController#root()
+2023-09-19 06:45:39.508 DEBUG 17372 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.yeonew.readinggarden.controller.MainController#root()
+2023-09-19 06:45:39.509 DEBUG 17372 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.yeonew.readinggarden.controller.MainController#root()
+2023-09-19 06:45:39.510 DEBUG 17372 --- [    Test worker] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [*/*]
+2023-09-19 06:45:39.510 DEBUG 17372 --- [    Test worker] o.s.w.servlet.view.InternalResourceView  : View [InternalResourceView], model {}
+2023-09-19 06:45:39.512 DEBUG 17372 --- [    Test worker] o.s.w.servlet.view.InternalResourceView  : Forwarding to [/articles]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.4.1</a> at 2023. 9. 19. 오전 6:45:41</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JPA 연결 테스트" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-09-18T21:45:40" hostname="YEONEW-DESKTOP" time="0.62">
+  <properties/>
+  <testcase name="대댓글 조회 테스트" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.139"/>
+  <testcase name="[Querydsl] hashtag로 페이징된 게시글 검색하기" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.182"/>
+  <testcase name="insert 테스트" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.072"/>
+  <testcase name="댓글 삭제와 대댓글 전체 연동 삭제 테스트" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.035"/>
+  <testcase name="댓글에 대댓글 삽입 테스트" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.043"/>
+  <testcase name="댓글 삭제와 대댓글 전체 연동 삭제 테스트 - 댓글 ID + 유저 ID" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.062"/>
+  <testcase name="select 테스트" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.029"/>
+  <testcase name="[Querydsl] 전체 hashtag 리스트에서 이름만 조회하기" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.009"/>
+  <testcase name="delete 테스트" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.017"/>
+  <testcase name="update 테스트" classname="com.yeonew.readinggarden.repository.JpaRepositoryTest" time="0.013"/>
+  <system-out><![CDATA[2023-09-19 06:45:39.623  INFO 17372 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.yeonew.readinggarden.repository.JpaRepositoryTest], using SpringBootContextLoader
+2023-09-19 06:45:39.624  INFO 17372 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.yeonew.readinggarden.repository.JpaRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-09-19 06:45:39.636  INFO 17372 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.yeonew.readinggarden.ReadingGardenApplication for test class com.yeonew.readinggarden.repository.JpaRepositoryTest
+2023-09-19 06:45:39.637  INFO 17372 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-09-19 06:45:39.638  INFO 17372 --- [    Test worker] b.t.a.o.j.DataJpaTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@68f2ccb2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@37a907cb, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@15f8b713, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6e79cc31, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@10101a10, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6f78d086, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3fe8a255, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1fd0f9dd, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@f80a0ad, org.springframework.test.context.event.EventPublishingTestExecutionListener@2655ad3b, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@5cd549ae, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@44535df8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4e5c1817, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@456b4892, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3385f1a8, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6de7c6bd, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4355f7b6]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.0)
+
+2023-09-19 06:45:39.668  INFO 17372 --- [    Test worker] c.y.r.repository.JpaRepositoryTest       : Starting JpaRepositoryTest using Java 17.0.5 on YEONEW-DESKTOP with PID 17372 (started by user in D:\workspace\project\reaing-garden)
+2023-09-19 06:45:39.668 DEBUG 17372 --- [    Test worker] c.y.r.repository.JpaRepositoryTest       : Running with Spring Boot v2.7.0, Spring v5.3.20
+2023-09-19 06:45:39.668  INFO 17372 --- [    Test worker] c.y.r.repository.JpaRepositoryTest       : No active profile set, falling back to 1 default profile: "default"
+2023-09-19 06:45:39.764  INFO 17372 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-19 06:45:39.788  INFO 17372 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
+2023-09-19 06:45:39.797  INFO 17372 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2023-09-19 06:45:39.840  INFO 17372 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:620bf5ac-c2e8-48d4-a462-fccbd222e3d4;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-09-19 06:45:39.881  INFO 17372 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-19 06:45:39.888  INFO 17372 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists article CASCADE 
+Hibernate: 
+    
+    drop table if exists article_hashtag CASCADE 
+Hibernate: 
+    
+    drop table if exists article_comment CASCADE 
+Hibernate: 
+    
+    drop table if exists hashtag CASCADE 
+Hibernate: 
+    
+    drop table if exists user_account CASCADE 
+Hibernate: 
+    
+    create table article (
+       id bigint generated by default as identity,
+        created_at timestamp not null,
+        created_by varchar(100) not null,
+        modified_at timestamp not null,
+        modified_by varchar(100) not null,
+        content varchar(10000) not null,
+        title varchar(255) not null,
+        user_id varchar(50) not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table article_hashtag (
+       article_id bigint not null,
+        hashtag_id bigint not null,
+        primary key (article_id, hashtag_id)
+    )
+Hibernate: 
+    
+    create table article_comment (
+       id bigint generated by default as identity,
+        created_at timestamp not null,
+        created_by varchar(100) not null,
+        modified_at timestamp not null,
+        modified_by varchar(100) not null,
+        content varchar(500) not null,
+        parent_comment_id bigint,
+        article_id bigint not null,
+        user_id varchar(50) not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table hashtag (
+       id bigint generated by default as identity,
+        created_at timestamp not null,
+        created_by varchar(100) not null,
+        modified_at timestamp not null,
+        modified_by varchar(100) not null,
+        hashtag_name varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table user_account (
+       user_id varchar(50) not null,
+        created_at timestamp not null,
+        created_by varchar(100) not null,
+        modified_at timestamp not null,
+        modified_by varchar(100) not null,
+        email varchar(100),
+        memo varchar(255),
+        nickname varchar(100),
+        user_password varchar(255) not null,
+        primary key (user_id)
+    )
+Hibernate: create index IDX571gx7oqo5xpmgocegaidlcu9 on article (title)
+Hibernate: create index IDXrmt77yibijtk4sarremr67saa on article (created_at)
+Hibernate: create index IDXjl4utii2etiocimt799wvtuvv on article (created_by)
+Hibernate: create index IDXpieqqnljv147sefofs56h25qx on article_comment (content)
+Hibernate: create index IDXh1jx107qecntcbcpc2vfb07ij on article_comment (created_at)
+Hibernate: create index IDXc6pa61djuf2o8xnceyyvtdbaq on article_comment (created_by)
+Hibernate: create index IDXqsw749049hk4qchgifri26i47 on hashtag (created_at)
+Hibernate: create index IDX86k52tgc32cdprjluy33m0k2d on hashtag (created_by)
+Hibernate: 
+    
+    alter table hashtag 
+       add constraint UKl5g14scs493ujoy0bh0slbp7a unique (hashtag_name)
+Hibernate: create index IDXogja11wxoxigeh554wd4094xv on user_account (created_at)
+Hibernate: create index IDX9twf822xbr2e0qcmnxueulgfw on user_account (created_by)
+Hibernate: 
+    
+    alter table user_account 
+       add constraint UKhl02wv5hym99ys465woijmfib unique (email)
+Hibernate: 
+    
+    alter table article 
+       add constraint FK81hjxo20c0so6pxe8rjpjlhj4 
+       foreign key (user_id) 
+       references user_account
+Hibernate: 
+    
+    alter table article_hashtag 
+       add constraint FKe3ccvxb3rjbjyugsttrkpabma 
+       foreign key (hashtag_id) 
+       references hashtag
+Hibernate: 
+    
+    alter table article_hashtag 
+       add constraint FK4adimje6fx9kut67u6jd9c174 
+       foreign key (article_id) 
+       references article
+Hibernate: 
+    
+    alter table article_comment 
+       add constraint FKghmocqkgqs5tkmucf5putw64t 
+       foreign key (article_id) 
+       references article
+Hibernate: 
+    
+    alter table article_comment 
+       add constraint FK67dybe2dob8uvrr7fyicyb1no 
+       foreign key (user_id) 
+       references user_account
+2023-09-19 06:45:40.000  INFO 17372 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-19 06:45:40.001  INFO 17372 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-19 06:45:40.489  INFO 17372 --- [    Test worker] c.y.r.repository.JpaRepositoryTest       : Started JpaRepositoryTest in 0.848 seconds (JVM running for 20.51)
+2023-09-19 06:45:40.500  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@5803dcf0, testMethod = givenParentCommentId_whenSelecting_thenReturnsChildComments@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        articlecom0_.id as id1_2_0_,
+        articlecom0_.created_at as created_2_2_0_,
+        articlecom0_.created_by as created_3_2_0_,
+        articlecom0_.modified_at as modified4_2_0_,
+        articlecom0_.modified_by as modified5_2_0_,
+        articlecom0_.article_id as article_8_2_0_,
+        articlecom0_.content as content6_2_0_,
+        articlecom0_.parent_comment_id as parent_c7_2_0_,
+        articlecom0_.user_id as user_id9_2_0_,
+        article1_.id as id1_0_1_,
+        article1_.created_at as created_2_0_1_,
+        article1_.created_by as created_3_0_1_,
+        article1_.modified_at as modified4_0_1_,
+        article1_.modified_by as modified5_0_1_,
+        article1_.content as content6_0_1_,
+        article1_.title as title7_0_1_,
+        article1_.user_id as user_id8_0_1_,
+        useraccoun2_.user_id as user_id1_4_2_,
+        useraccoun2_.created_at as created_2_4_2_,
+        useraccoun2_.created_by as created_3_4_2_,
+        useraccoun2_.modified_at as modified4_4_2_,
+        useraccoun2_.modified_by as modified5_4_2_,
+        useraccoun2_.email as email6_4_2_,
+        useraccoun2_.memo as memo7_4_2_,
+        useraccoun2_.nickname as nickname8_4_2_,
+        useraccoun2_.user_password as user_pas9_4_2_,
+        useraccoun3_.user_id as user_id1_4_3_,
+        useraccoun3_.created_at as created_2_4_3_,
+        useraccoun3_.created_by as created_3_4_3_,
+        useraccoun3_.modified_at as modified4_4_3_,
+        useraccoun3_.modified_by as modified5_4_3_,
+        useraccoun3_.email as email6_4_3_,
+        useraccoun3_.memo as memo7_4_3_,
+        useraccoun3_.nickname as nickname8_4_3_,
+        useraccoun3_.user_password as user_pas9_4_3_ 
+    from
+        article_comment articlecom0_ 
+    inner join
+        article article1_ 
+            on articlecom0_.article_id=article1_.id 
+    inner join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on articlecom0_.user_id=useraccoun3_.user_id 
+    where
+        articlecom0_.id=?
+2023-09-19 06:45:40.531 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        childcomme0_.parent_comment_id as parent_c7_2_4_,
+        childcomme0_.id as id1_2_4_,
+        childcomme0_.id as id1_2_3_,
+        childcomme0_.created_at as created_2_2_3_,
+        childcomme0_.created_by as created_3_2_3_,
+        childcomme0_.modified_at as modified4_2_3_,
+        childcomme0_.modified_by as modified5_2_3_,
+        childcomme0_.article_id as article_8_2_3_,
+        childcomme0_.content as content6_2_3_,
+        childcomme0_.parent_comment_id as parent_c7_2_3_,
+        childcomme0_.user_id as user_id9_2_3_,
+        article1_.id as id1_0_0_,
+        article1_.created_at as created_2_0_0_,
+        article1_.created_by as created_3_0_0_,
+        article1_.modified_at as modified4_0_0_,
+        article1_.modified_by as modified5_0_0_,
+        article1_.content as content6_0_0_,
+        article1_.title as title7_0_0_,
+        article1_.user_id as user_id8_0_0_,
+        useraccoun2_.user_id as user_id1_4_1_,
+        useraccoun2_.created_at as created_2_4_1_,
+        useraccoun2_.created_by as created_3_4_1_,
+        useraccoun2_.modified_at as modified4_4_1_,
+        useraccoun2_.modified_by as modified5_4_1_,
+        useraccoun2_.email as email6_4_1_,
+        useraccoun2_.memo as memo7_4_1_,
+        useraccoun2_.nickname as nickname8_4_1_,
+        useraccoun2_.user_password as user_pas9_4_1_,
+        useraccoun3_.user_id as user_id1_4_2_,
+        useraccoun3_.created_at as created_2_4_2_,
+        useraccoun3_.created_by as created_3_4_2_,
+        useraccoun3_.modified_at as modified4_4_2_,
+        useraccoun3_.modified_by as modified5_4_2_,
+        useraccoun3_.email as email6_4_2_,
+        useraccoun3_.memo as memo7_4_2_,
+        useraccoun3_.nickname as nickname8_4_2_,
+        useraccoun3_.user_password as user_pas9_4_2_ 
+    from
+        article_comment childcomme0_ 
+    inner join
+        article article1_ 
+            on childcomme0_.article_id=article1_.id 
+    left outer join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on childcomme0_.user_id=useraccoun3_.user_id 
+    where
+        childcomme0_.parent_comment_id=? 
+    order by
+        childcomme0_.created_at asc
+2023-09-19 06:45:40.622 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2023-09-19 06:45:40.631  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@5803dcf0, testMethod = givenParentCommentId_whenSelecting_thenReturnsChildComments@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:40.635  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@26b01384, testMethod = givenHashtagNamesAndPageable_whenQueryingArticles_thenReturnsArticlePage@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        article0_.id as id1_0_,
+        article0_.created_at as created_2_0_,
+        article0_.created_by as created_3_0_,
+        article0_.modified_at as modified4_0_,
+        article0_.modified_by as modified5_0_,
+        article0_.content as content6_0_,
+        article0_.title as title7_0_,
+        article0_.user_id as user_id8_0_ 
+    from
+        article article0_ 
+    inner join
+        article_hashtag hashtags1_ 
+            on article0_.id=hashtags1_.article_id 
+    inner join
+        hashtag hashtag2_ 
+            on hashtags1_.hashtag_id=hashtag2_.id 
+    where
+        hashtag2_.hashtag_name in (
+            ? , ? , ?
+        ) 
+    order by
+        hashtag2_.hashtag_name desc,
+        article0_.title asc limit ?
+2023-09-19 06:45:40.782 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [blue]
+2023-09-19 06:45:40.782 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [crimson]
+2023-09-19 06:45:40.782 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [fuscia]
+Hibernate: 
+    select
+        useraccoun0_.user_id as user_id1_4_0_,
+        useraccoun0_.created_at as created_2_4_0_,
+        useraccoun0_.created_by as created_3_4_0_,
+        useraccoun0_.modified_at as modified4_4_0_,
+        useraccoun0_.modified_by as modified5_4_0_,
+        useraccoun0_.email as email6_4_0_,
+        useraccoun0_.memo as memo7_4_0_,
+        useraccoun0_.nickname as nickname8_4_0_,
+        useraccoun0_.user_password as user_pas9_4_0_ 
+    from
+        user_account useraccoun0_ 
+    where
+        useraccoun0_.user_id=?
+2023-09-19 06:45:40.784 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [uno]
+Hibernate: 
+    select
+        count(article0_.id) as col_0_0_ 
+    from
+        article article0_ 
+    inner join
+        article_hashtag hashtags1_ 
+            on article0_.id=hashtags1_.article_id 
+    inner join
+        hashtag hashtag2_ 
+            on hashtags1_.hashtag_id=hashtag2_.id 
+    where
+        hashtag2_.hashtag_name in (
+            ? , ? , ?
+        )
+2023-09-19 06:45:40.804 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [blue]
+2023-09-19 06:45:40.804 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [crimson]
+2023-09-19 06:45:40.804 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [fuscia]
+Hibernate: 
+    select
+        hashtags0_.article_id as article_1_1_1_,
+        hashtags0_.hashtag_id as hashtag_2_1_1_,
+        hashtag1_.id as id1_3_0_,
+        hashtag1_.created_at as created_2_3_0_,
+        hashtag1_.created_by as created_3_3_0_,
+        hashtag1_.modified_at as modified4_3_0_,
+        hashtag1_.modified_by as modified5_3_0_,
+        hashtag1_.hashtag_name as hashtag_6_3_0_ 
+    from
+        article_hashtag hashtags0_ 
+    inner join
+        hashtag hashtag1_ 
+            on hashtags0_.hashtag_id=hashtag1_.id 
+    where
+        hashtags0_.article_id in (
+            ?, ?, ?, ?, ?
+        )
+2023-09-19 06:45:40.810 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [72]
+2023-09-19 06:45:40.810 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [21]
+2023-09-19 06:45:40.810 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [25]
+2023-09-19 06:45:40.810 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [95]
+2023-09-19 06:45:40.810 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [29]
+2023-09-19 06:45:40.816  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@26b01384, testMethod = givenHashtagNamesAndPageable_whenQueryingArticles_thenReturnsArticlePage@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:40.819  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@77966cc3, testMethod = givenTestData_whenInserting_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article article0_
+Hibernate: 
+    select
+        useraccoun0_.user_id as user_id1_4_0_,
+        useraccoun0_.created_at as created_2_4_0_,
+        useraccoun0_.created_by as created_3_4_0_,
+        useraccoun0_.modified_at as modified4_4_0_,
+        useraccoun0_.modified_by as modified5_4_0_,
+        useraccoun0_.email as email6_4_0_,
+        useraccoun0_.memo as memo7_4_0_,
+        useraccoun0_.nickname as nickname8_4_0_,
+        useraccoun0_.user_password as user_pas9_4_0_ 
+    from
+        user_account useraccoun0_ 
+    where
+        useraccoun0_.user_id=?
+2023-09-19 06:45:40.834 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [newUno]
+Hibernate: 
+    insert 
+    into
+        user_account
+        (created_at, created_by, modified_at, modified_by, email, memo, nickname, user_password, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-09-19T06:45:40.855526400]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [TIMESTAMP] - [2023-09-19T06:45:40.855526400]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [null]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [null]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [pw]
+2023-09-19 06:45:40.876 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [newUno]
+Hibernate: 
+    insert 
+    into
+        article
+        (id, created_at, created_by, modified_at, modified_by, content, title, user_id) 
+    values
+        (default, ?, ?, ?, ?, ?, ?, ?)
+2023-09-19 06:45:40.879 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-09-19T06:45:40.869527800]
+2023-09-19 06:45:40.879 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.879 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [TIMESTAMP] - [2023-09-19T06:45:40.869527800]
+2023-09-19 06:45:40.879 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.879 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [new content]
+2023-09-19 06:45:40.879 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [new article]
+2023-09-19 06:45:40.879 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [newUno]
+Hibernate: 
+    insert 
+    into
+        hashtag
+        (id, created_at, created_by, modified_at, modified_by, hashtag_name) 
+    values
+        (default, ?, ?, ?, ?, ?)
+2023-09-19 06:45:40.886 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-09-19T06:45:40.886526200]
+2023-09-19 06:45:40.887 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.887 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [TIMESTAMP] - [2023-09-19T06:45:40.886526200]
+2023-09-19 06:45:40.887 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.887 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [spring]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article article0_
+2023-09-19 06:45:40.890  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@77966cc3, testMethod = givenTestData_whenInserting_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:40.893  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@7b301349, testMethod = givenArticleCommentHavingChildComments_whenDeletingParentComment_thenDeletesEveryComment@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article_comment articlecom0_
+Hibernate: 
+    select
+        articlecom0_.id as id1_2_0_,
+        articlecom0_.created_at as created_2_2_0_,
+        articlecom0_.created_by as created_3_2_0_,
+        articlecom0_.modified_at as modified4_2_0_,
+        articlecom0_.modified_by as modified5_2_0_,
+        articlecom0_.article_id as article_8_2_0_,
+        articlecom0_.content as content6_2_0_,
+        articlecom0_.parent_comment_id as parent_c7_2_0_,
+        articlecom0_.user_id as user_id9_2_0_,
+        article1_.id as id1_0_1_,
+        article1_.created_at as created_2_0_1_,
+        article1_.created_by as created_3_0_1_,
+        article1_.modified_at as modified4_0_1_,
+        article1_.modified_by as modified5_0_1_,
+        article1_.content as content6_0_1_,
+        article1_.title as title7_0_1_,
+        article1_.user_id as user_id8_0_1_,
+        useraccoun2_.user_id as user_id1_4_2_,
+        useraccoun2_.created_at as created_2_4_2_,
+        useraccoun2_.created_by as created_3_4_2_,
+        useraccoun2_.modified_at as modified4_4_2_,
+        useraccoun2_.modified_by as modified5_4_2_,
+        useraccoun2_.email as email6_4_2_,
+        useraccoun2_.memo as memo7_4_2_,
+        useraccoun2_.nickname as nickname8_4_2_,
+        useraccoun2_.user_password as user_pas9_4_2_,
+        useraccoun3_.user_id as user_id1_4_3_,
+        useraccoun3_.created_at as created_2_4_3_,
+        useraccoun3_.created_by as created_3_4_3_,
+        useraccoun3_.modified_at as modified4_4_3_,
+        useraccoun3_.modified_by as modified5_4_3_,
+        useraccoun3_.email as email6_4_3_,
+        useraccoun3_.memo as memo7_4_3_,
+        useraccoun3_.nickname as nickname8_4_3_,
+        useraccoun3_.user_password as user_pas9_4_3_ 
+    from
+        article_comment articlecom0_ 
+    inner join
+        article article1_ 
+            on articlecom0_.article_id=article1_.id 
+    inner join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on articlecom0_.user_id=useraccoun3_.user_id 
+    where
+        articlecom0_.id=?
+2023-09-19 06:45:40.906 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        childcomme0_.parent_comment_id as parent_c7_2_4_,
+        childcomme0_.id as id1_2_4_,
+        childcomme0_.id as id1_2_3_,
+        childcomme0_.created_at as created_2_2_3_,
+        childcomme0_.created_by as created_3_2_3_,
+        childcomme0_.modified_at as modified4_2_3_,
+        childcomme0_.modified_by as modified5_2_3_,
+        childcomme0_.article_id as article_8_2_3_,
+        childcomme0_.content as content6_2_3_,
+        childcomme0_.parent_comment_id as parent_c7_2_3_,
+        childcomme0_.user_id as user_id9_2_3_,
+        article1_.id as id1_0_0_,
+        article1_.created_at as created_2_0_0_,
+        article1_.created_by as created_3_0_0_,
+        article1_.modified_at as modified4_0_0_,
+        article1_.modified_by as modified5_0_0_,
+        article1_.content as content6_0_0_,
+        article1_.title as title7_0_0_,
+        article1_.user_id as user_id8_0_0_,
+        useraccoun2_.user_id as user_id1_4_1_,
+        useraccoun2_.created_at as created_2_4_1_,
+        useraccoun2_.created_by as created_3_4_1_,
+        useraccoun2_.modified_at as modified4_4_1_,
+        useraccoun2_.modified_by as modified5_4_1_,
+        useraccoun2_.email as email6_4_1_,
+        useraccoun2_.memo as memo7_4_1_,
+        useraccoun2_.nickname as nickname8_4_1_,
+        useraccoun2_.user_password as user_pas9_4_1_,
+        useraccoun3_.user_id as user_id1_4_2_,
+        useraccoun3_.created_at as created_2_4_2_,
+        useraccoun3_.created_by as created_3_4_2_,
+        useraccoun3_.modified_at as modified4_4_2_,
+        useraccoun3_.modified_by as modified5_4_2_,
+        useraccoun3_.email as email6_4_2_,
+        useraccoun3_.memo as memo7_4_2_,
+        useraccoun3_.nickname as nickname8_4_2_,
+        useraccoun3_.user_password as user_pas9_4_2_ 
+    from
+        article_comment childcomme0_ 
+    inner join
+        article article1_ 
+            on childcomme0_.article_id=article1_.id 
+    left outer join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on childcomme0_.user_id=useraccoun3_.user_id 
+    where
+        childcomme0_.parent_comment_id=? 
+    order by
+        childcomme0_.created_at asc
+2023-09-19 06:45:40.909 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        childcomme0_.parent_comment_id as parent_c7_2_4_,
+        childcomme0_.id as id1_2_4_,
+        childcomme0_.id as id1_2_3_,
+        childcomme0_.created_at as created_2_2_3_,
+        childcomme0_.created_by as created_3_2_3_,
+        childcomme0_.modified_at as modified4_2_3_,
+        childcomme0_.modified_by as modified5_2_3_,
+        childcomme0_.article_id as article_8_2_3_,
+        childcomme0_.content as content6_2_3_,
+        childcomme0_.parent_comment_id as parent_c7_2_3_,
+        childcomme0_.user_id as user_id9_2_3_,
+        article1_.id as id1_0_0_,
+        article1_.created_at as created_2_0_0_,
+        article1_.created_by as created_3_0_0_,
+        article1_.modified_at as modified4_0_0_,
+        article1_.modified_by as modified5_0_0_,
+        article1_.content as content6_0_0_,
+        article1_.title as title7_0_0_,
+        article1_.user_id as user_id8_0_0_,
+        useraccoun2_.user_id as user_id1_4_1_,
+        useraccoun2_.created_at as created_2_4_1_,
+        useraccoun2_.created_by as created_3_4_1_,
+        useraccoun2_.modified_at as modified4_4_1_,
+        useraccoun2_.modified_by as modified5_4_1_,
+        useraccoun2_.email as email6_4_1_,
+        useraccoun2_.memo as memo7_4_1_,
+        useraccoun2_.nickname as nickname8_4_1_,
+        useraccoun2_.user_password as user_pas9_4_1_,
+        useraccoun3_.user_id as user_id1_4_2_,
+        useraccoun3_.created_at as created_2_4_2_,
+        useraccoun3_.created_by as created_3_4_2_,
+        useraccoun3_.modified_at as modified4_4_2_,
+        useraccoun3_.modified_by as modified5_4_2_,
+        useraccoun3_.email as email6_4_2_,
+        useraccoun3_.memo as memo7_4_2_,
+        useraccoun3_.nickname as nickname8_4_2_,
+        useraccoun3_.user_password as user_pas9_4_2_ 
+    from
+        article_comment childcomme0_ 
+    inner join
+        article article1_ 
+            on childcomme0_.article_id=article1_.id 
+    left outer join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on childcomme0_.user_id=useraccoun3_.user_id 
+    where
+        childcomme0_.parent_comment_id in (
+            ?, ?, ?, ?
+        ) 
+    order by
+        childcomme0_.created_at asc
+2023-09-19 06:45:40.913 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [301]
+2023-09-19 06:45:40.913 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [302]
+2023-09-19 06:45:40.913 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [303]
+2023-09-19 06:45:40.913 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [304]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:40.917 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [301]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:40.921 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [302]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:40.921 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [303]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:40.922 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [304]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:40.922 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article_comment articlecom0_
+2023-09-19 06:45:40.927  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@7b301349, testMethod = givenArticleCommentHavingChildComments_whenDeletingParentComment_thenDeletesEveryComment@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:40.931  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@5e535e23, testMethod = givenParentComment_whenSaving_thenInsertsChildComment@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        articlecom0_.id as id1_2_0_,
+        articlecom0_.created_at as created_2_2_0_,
+        articlecom0_.created_by as created_3_2_0_,
+        articlecom0_.modified_at as modified4_2_0_,
+        articlecom0_.modified_by as modified5_2_0_,
+        articlecom0_.article_id as article_8_2_0_,
+        articlecom0_.content as content6_2_0_,
+        articlecom0_.parent_comment_id as parent_c7_2_0_,
+        articlecom0_.user_id as user_id9_2_0_,
+        article1_.id as id1_0_1_,
+        article1_.created_at as created_2_0_1_,
+        article1_.created_by as created_3_0_1_,
+        article1_.modified_at as modified4_0_1_,
+        article1_.modified_by as modified5_0_1_,
+        article1_.content as content6_0_1_,
+        article1_.title as title7_0_1_,
+        article1_.user_id as user_id8_0_1_,
+        useraccoun2_.user_id as user_id1_4_2_,
+        useraccoun2_.created_at as created_2_4_2_,
+        useraccoun2_.created_by as created_3_4_2_,
+        useraccoun2_.modified_at as modified4_4_2_,
+        useraccoun2_.modified_by as modified5_4_2_,
+        useraccoun2_.email as email6_4_2_,
+        useraccoun2_.memo as memo7_4_2_,
+        useraccoun2_.nickname as nickname8_4_2_,
+        useraccoun2_.user_password as user_pas9_4_2_,
+        useraccoun3_.user_id as user_id1_4_3_,
+        useraccoun3_.created_at as created_2_4_3_,
+        useraccoun3_.created_by as created_3_4_3_,
+        useraccoun3_.modified_at as modified4_4_3_,
+        useraccoun3_.modified_by as modified5_4_3_,
+        useraccoun3_.email as email6_4_3_,
+        useraccoun3_.memo as memo7_4_3_,
+        useraccoun3_.nickname as nickname8_4_3_,
+        useraccoun3_.user_password as user_pas9_4_3_ 
+    from
+        article_comment articlecom0_ 
+    inner join
+        article article1_ 
+            on articlecom0_.article_id=article1_.id 
+    inner join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on articlecom0_.user_id=useraccoun3_.user_id 
+    where
+        articlecom0_.id=?
+2023-09-19 06:45:40.936 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        childcomme0_.parent_comment_id as parent_c7_2_4_,
+        childcomme0_.id as id1_2_4_,
+        childcomme0_.id as id1_2_3_,
+        childcomme0_.created_at as created_2_2_3_,
+        childcomme0_.created_by as created_3_2_3_,
+        childcomme0_.modified_at as modified4_2_3_,
+        childcomme0_.modified_by as modified5_2_3_,
+        childcomme0_.article_id as article_8_2_3_,
+        childcomme0_.content as content6_2_3_,
+        childcomme0_.parent_comment_id as parent_c7_2_3_,
+        childcomme0_.user_id as user_id9_2_3_,
+        article1_.id as id1_0_0_,
+        article1_.created_at as created_2_0_0_,
+        article1_.created_by as created_3_0_0_,
+        article1_.modified_at as modified4_0_0_,
+        article1_.modified_by as modified5_0_0_,
+        article1_.content as content6_0_0_,
+        article1_.title as title7_0_0_,
+        article1_.user_id as user_id8_0_0_,
+        useraccoun2_.user_id as user_id1_4_1_,
+        useraccoun2_.created_at as created_2_4_1_,
+        useraccoun2_.created_by as created_3_4_1_,
+        useraccoun2_.modified_at as modified4_4_1_,
+        useraccoun2_.modified_by as modified5_4_1_,
+        useraccoun2_.email as email6_4_1_,
+        useraccoun2_.memo as memo7_4_1_,
+        useraccoun2_.nickname as nickname8_4_1_,
+        useraccoun2_.user_password as user_pas9_4_1_,
+        useraccoun3_.user_id as user_id1_4_2_,
+        useraccoun3_.created_at as created_2_4_2_,
+        useraccoun3_.created_by as created_3_4_2_,
+        useraccoun3_.modified_at as modified4_4_2_,
+        useraccoun3_.modified_by as modified5_4_2_,
+        useraccoun3_.email as email6_4_2_,
+        useraccoun3_.memo as memo7_4_2_,
+        useraccoun3_.nickname as nickname8_4_2_,
+        useraccoun3_.user_password as user_pas9_4_2_ 
+    from
+        article_comment childcomme0_ 
+    inner join
+        article article1_ 
+            on childcomme0_.article_id=article1_.id 
+    left outer join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on childcomme0_.user_id=useraccoun3_.user_id 
+    where
+        childcomme0_.parent_comment_id=? 
+    order by
+        childcomme0_.created_at asc
+2023-09-19 06:45:40.942 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    insert 
+    into
+        article_comment
+        (id, created_at, created_by, modified_at, modified_by, article_id, content, parent_comment_id, user_id) 
+    values
+        (default, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-09-19 06:45:40.958 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-09-19T06:45:40.958527600]
+2023-09-19 06:45:40.959 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.959 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [TIMESTAMP] - [2023-09-19T06:45:40.958527600]
+2023-09-19 06:45:40.959 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.959 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [49]
+2023-09-19 06:45:40.959 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [대댓글]
+2023-09-19 06:45:40.959 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2023-09-19 06:45:40.959 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [uno]
+2023-09-19 06:45:40.973  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@5e535e23, testMethod = givenParentComment_whenSaving_thenInsertsChildComment@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:40.976  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@78a4764f, testMethod = givenArticleCommentIdHavingChildCommentsAndUserId_whenDeletingParentComment_thenDeletesEveryComment@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article_comment articlecom0_
+Hibernate: 
+    select
+        articlecom0_.id as id1_2_,
+        articlecom0_.created_at as created_2_2_,
+        articlecom0_.created_by as created_3_2_,
+        articlecom0_.modified_at as modified4_2_,
+        articlecom0_.modified_by as modified5_2_,
+        articlecom0_.article_id as article_8_2_,
+        articlecom0_.content as content6_2_,
+        articlecom0_.parent_comment_id as parent_c7_2_,
+        articlecom0_.user_id as user_id9_2_ 
+    from
+        article_comment articlecom0_ 
+    inner join
+        user_account useraccoun1_ 
+            on articlecom0_.user_id=useraccoun1_.user_id 
+    where
+        articlecom0_.id=? 
+        and useraccoun1_.user_id=?
+2023-09-19 06:45:41.014 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2023-09-19 06:45:41.014 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [uno]
+Hibernate: 
+    select
+        article0_.id as id1_0_0_,
+        article0_.created_at as created_2_0_0_,
+        article0_.created_by as created_3_0_0_,
+        article0_.modified_at as modified4_0_0_,
+        article0_.modified_by as modified5_0_0_,
+        article0_.content as content6_0_0_,
+        article0_.title as title7_0_0_,
+        article0_.user_id as user_id8_0_0_,
+        useraccoun1_.user_id as user_id1_4_1_,
+        useraccoun1_.created_at as created_2_4_1_,
+        useraccoun1_.created_by as created_3_4_1_,
+        useraccoun1_.modified_at as modified4_4_1_,
+        useraccoun1_.modified_by as modified5_4_1_,
+        useraccoun1_.email as email6_4_1_,
+        useraccoun1_.memo as memo7_4_1_,
+        useraccoun1_.nickname as nickname8_4_1_,
+        useraccoun1_.user_password as user_pas9_4_1_ 
+    from
+        article article0_ 
+    inner join
+        user_account useraccoun1_ 
+            on article0_.user_id=useraccoun1_.user_id 
+    where
+        article0_.id=?
+2023-09-19 06:45:41.016 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [49]
+Hibernate: 
+    select
+        childcomme0_.parent_comment_id as parent_c7_2_4_,
+        childcomme0_.id as id1_2_4_,
+        childcomme0_.id as id1_2_3_,
+        childcomme0_.created_at as created_2_2_3_,
+        childcomme0_.created_by as created_3_2_3_,
+        childcomme0_.modified_at as modified4_2_3_,
+        childcomme0_.modified_by as modified5_2_3_,
+        childcomme0_.article_id as article_8_2_3_,
+        childcomme0_.content as content6_2_3_,
+        childcomme0_.parent_comment_id as parent_c7_2_3_,
+        childcomme0_.user_id as user_id9_2_3_,
+        article1_.id as id1_0_0_,
+        article1_.created_at as created_2_0_0_,
+        article1_.created_by as created_3_0_0_,
+        article1_.modified_at as modified4_0_0_,
+        article1_.modified_by as modified5_0_0_,
+        article1_.content as content6_0_0_,
+        article1_.title as title7_0_0_,
+        article1_.user_id as user_id8_0_0_,
+        useraccoun2_.user_id as user_id1_4_1_,
+        useraccoun2_.created_at as created_2_4_1_,
+        useraccoun2_.created_by as created_3_4_1_,
+        useraccoun2_.modified_at as modified4_4_1_,
+        useraccoun2_.modified_by as modified5_4_1_,
+        useraccoun2_.email as email6_4_1_,
+        useraccoun2_.memo as memo7_4_1_,
+        useraccoun2_.nickname as nickname8_4_1_,
+        useraccoun2_.user_password as user_pas9_4_1_,
+        useraccoun3_.user_id as user_id1_4_2_,
+        useraccoun3_.created_at as created_2_4_2_,
+        useraccoun3_.created_by as created_3_4_2_,
+        useraccoun3_.modified_at as modified4_4_2_,
+        useraccoun3_.modified_by as modified5_4_2_,
+        useraccoun3_.email as email6_4_2_,
+        useraccoun3_.memo as memo7_4_2_,
+        useraccoun3_.nickname as nickname8_4_2_,
+        useraccoun3_.user_password as user_pas9_4_2_ 
+    from
+        article_comment childcomme0_ 
+    inner join
+        article article1_ 
+            on childcomme0_.article_id=article1_.id 
+    left outer join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on childcomme0_.user_id=useraccoun3_.user_id 
+    where
+        childcomme0_.parent_comment_id=? 
+    order by
+        childcomme0_.created_at asc
+2023-09-19 06:45:41.024 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        childcomme0_.parent_comment_id as parent_c7_2_4_,
+        childcomme0_.id as id1_2_4_,
+        childcomme0_.id as id1_2_3_,
+        childcomme0_.created_at as created_2_2_3_,
+        childcomme0_.created_by as created_3_2_3_,
+        childcomme0_.modified_at as modified4_2_3_,
+        childcomme0_.modified_by as modified5_2_3_,
+        childcomme0_.article_id as article_8_2_3_,
+        childcomme0_.content as content6_2_3_,
+        childcomme0_.parent_comment_id as parent_c7_2_3_,
+        childcomme0_.user_id as user_id9_2_3_,
+        article1_.id as id1_0_0_,
+        article1_.created_at as created_2_0_0_,
+        article1_.created_by as created_3_0_0_,
+        article1_.modified_at as modified4_0_0_,
+        article1_.modified_by as modified5_0_0_,
+        article1_.content as content6_0_0_,
+        article1_.title as title7_0_0_,
+        article1_.user_id as user_id8_0_0_,
+        useraccoun2_.user_id as user_id1_4_1_,
+        useraccoun2_.created_at as created_2_4_1_,
+        useraccoun2_.created_by as created_3_4_1_,
+        useraccoun2_.modified_at as modified4_4_1_,
+        useraccoun2_.modified_by as modified5_4_1_,
+        useraccoun2_.email as email6_4_1_,
+        useraccoun2_.memo as memo7_4_1_,
+        useraccoun2_.nickname as nickname8_4_1_,
+        useraccoun2_.user_password as user_pas9_4_1_,
+        useraccoun3_.user_id as user_id1_4_2_,
+        useraccoun3_.created_at as created_2_4_2_,
+        useraccoun3_.created_by as created_3_4_2_,
+        useraccoun3_.modified_at as modified4_4_2_,
+        useraccoun3_.modified_by as modified5_4_2_,
+        useraccoun3_.email as email6_4_2_,
+        useraccoun3_.memo as memo7_4_2_,
+        useraccoun3_.nickname as nickname8_4_2_,
+        useraccoun3_.user_password as user_pas9_4_2_ 
+    from
+        article_comment childcomme0_ 
+    inner join
+        article article1_ 
+            on childcomme0_.article_id=article1_.id 
+    left outer join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on childcomme0_.user_id=useraccoun3_.user_id 
+    where
+        childcomme0_.parent_comment_id in (
+            ?, ?, ?, ?
+        ) 
+    order by
+        childcomme0_.created_at asc
+2023-09-19 06:45:41.027 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [301]
+2023-09-19 06:45:41.028 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [302]
+2023-09-19 06:45:41.028 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [303]
+2023-09-19 06:45:41.028 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [304]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.032 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [301]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.032 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [302]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.032 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [303]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.033 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [304]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.033 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article_comment articlecom0_
+2023-09-19 06:45:41.036  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@78a4764f, testMethod = givenArticleCommentIdHavingChildCommentsAndUserId_whenDeletingParentComment_thenDeletesEveryComment@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:41.041  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@460f2b6c, testMethod = givenTestData_whenSelecting_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        article0_.id as id1_0_,
+        article0_.created_at as created_2_0_,
+        article0_.created_by as created_3_0_,
+        article0_.modified_at as modified4_0_,
+        article0_.modified_by as modified5_0_,
+        article0_.content as content6_0_,
+        article0_.title as title7_0_,
+        article0_.user_id as user_id8_0_ 
+    from
+        article article0_
+Hibernate: 
+    select
+        useraccoun0_.user_id as user_id1_4_0_,
+        useraccoun0_.created_at as created_2_4_0_,
+        useraccoun0_.created_by as created_3_4_0_,
+        useraccoun0_.modified_at as modified4_4_0_,
+        useraccoun0_.modified_by as modified5_4_0_,
+        useraccoun0_.email as email6_4_0_,
+        useraccoun0_.memo as memo7_4_0_,
+        useraccoun0_.nickname as nickname8_4_0_,
+        useraccoun0_.user_password as user_pas9_4_0_ 
+    from
+        user_account useraccoun0_ 
+    where
+        useraccoun0_.user_id in (
+            ?, ?
+        )
+2023-09-19 06:45:41.058 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [uno2]
+2023-09-19 06:45:41.058 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [uno]
+2023-09-19 06:45:41.068  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@460f2b6c, testMethod = givenTestData_whenSelecting_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:41.072  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@5f4ddd09, testMethod = givenNothing_whenQueryingHashtags_thenReturnsHashtagNames@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        hashtag0_.hashtag_name as col_0_0_ 
+    from
+        hashtag hashtag0_
+2023-09-19 06:45:41.079  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@5f4ddd09, testMethod = givenNothing_whenQueryingHashtags_thenReturnsHashtagNames@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:41.082  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@9a6c67c, testMethod = givenTestData_whenDeleting_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        article0_.id as id1_0_0_,
+        article0_.created_at as created_2_0_0_,
+        article0_.created_by as created_3_0_0_,
+        article0_.modified_at as modified4_0_0_,
+        article0_.modified_by as modified5_0_0_,
+        article0_.content as content6_0_0_,
+        article0_.title as title7_0_0_,
+        article0_.user_id as user_id8_0_0_,
+        useraccoun1_.user_id as user_id1_4_1_,
+        useraccoun1_.created_at as created_2_4_1_,
+        useraccoun1_.created_by as created_3_4_1_,
+        useraccoun1_.modified_at as modified4_4_1_,
+        useraccoun1_.modified_by as modified5_4_1_,
+        useraccoun1_.email as email6_4_1_,
+        useraccoun1_.memo as memo7_4_1_,
+        useraccoun1_.nickname as nickname8_4_1_,
+        useraccoun1_.user_password as user_pas9_4_1_ 
+    from
+        article article0_ 
+    inner join
+        user_account useraccoun1_ 
+            on article0_.user_id=useraccoun1_.user_id 
+    where
+        article0_.id=?
+2023-09-19 06:45:41.084 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article article0_
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article_comment articlecom0_
+Hibernate: 
+    select
+        articlecom0_.article_id as article_8_2_2_,
+        articlecom0_.id as id1_2_2_,
+        articlecom0_.id as id1_2_1_,
+        articlecom0_.created_at as created_2_2_1_,
+        articlecom0_.created_by as created_3_2_1_,
+        articlecom0_.modified_at as modified4_2_1_,
+        articlecom0_.modified_by as modified5_2_1_,
+        articlecom0_.article_id as article_8_2_1_,
+        articlecom0_.content as content6_2_1_,
+        articlecom0_.parent_comment_id as parent_c7_2_1_,
+        articlecom0_.user_id as user_id9_2_1_,
+        useraccoun1_.user_id as user_id1_4_0_,
+        useraccoun1_.created_at as created_2_4_0_,
+        useraccoun1_.created_by as created_3_4_0_,
+        useraccoun1_.modified_at as modified4_4_0_,
+        useraccoun1_.modified_by as modified5_4_0_,
+        useraccoun1_.email as email6_4_0_,
+        useraccoun1_.memo as memo7_4_0_,
+        useraccoun1_.nickname as nickname8_4_0_,
+        useraccoun1_.user_password as user_pas9_4_0_ 
+    from
+        article_comment articlecom0_ 
+    inner join
+        user_account useraccoun1_ 
+            on articlecom0_.user_id=useraccoun1_.user_id 
+    where
+        articlecom0_.article_id=? 
+    order by
+        articlecom0_.created_at desc
+2023-09-19 06:45:41.088 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        childcomme0_.parent_comment_id as parent_c7_2_4_,
+        childcomme0_.id as id1_2_4_,
+        childcomme0_.id as id1_2_3_,
+        childcomme0_.created_at as created_2_2_3_,
+        childcomme0_.created_by as created_3_2_3_,
+        childcomme0_.modified_at as modified4_2_3_,
+        childcomme0_.modified_by as modified5_2_3_,
+        childcomme0_.article_id as article_8_2_3_,
+        childcomme0_.content as content6_2_3_,
+        childcomme0_.parent_comment_id as parent_c7_2_3_,
+        childcomme0_.user_id as user_id9_2_3_,
+        article1_.id as id1_0_0_,
+        article1_.created_at as created_2_0_0_,
+        article1_.created_by as created_3_0_0_,
+        article1_.modified_at as modified4_0_0_,
+        article1_.modified_by as modified5_0_0_,
+        article1_.content as content6_0_0_,
+        article1_.title as title7_0_0_,
+        article1_.user_id as user_id8_0_0_,
+        useraccoun2_.user_id as user_id1_4_1_,
+        useraccoun2_.created_at as created_2_4_1_,
+        useraccoun2_.created_by as created_3_4_1_,
+        useraccoun2_.modified_at as modified4_4_1_,
+        useraccoun2_.modified_by as modified5_4_1_,
+        useraccoun2_.email as email6_4_1_,
+        useraccoun2_.memo as memo7_4_1_,
+        useraccoun2_.nickname as nickname8_4_1_,
+        useraccoun2_.user_password as user_pas9_4_1_,
+        useraccoun3_.user_id as user_id1_4_2_,
+        useraccoun3_.created_at as created_2_4_2_,
+        useraccoun3_.created_by as created_3_4_2_,
+        useraccoun3_.modified_at as modified4_4_2_,
+        useraccoun3_.modified_by as modified5_4_2_,
+        useraccoun3_.email as email6_4_2_,
+        useraccoun3_.memo as memo7_4_2_,
+        useraccoun3_.nickname as nickname8_4_2_,
+        useraccoun3_.user_password as user_pas9_4_2_ 
+    from
+        article_comment childcomme0_ 
+    inner join
+        article article1_ 
+            on childcomme0_.article_id=article1_.id 
+    left outer join
+        user_account useraccoun2_ 
+            on article1_.user_id=useraccoun2_.user_id 
+    inner join
+        user_account useraccoun3_ 
+            on childcomme0_.user_id=useraccoun3_.user_id 
+    where
+        childcomme0_.parent_comment_id in (
+            ?, ?, ?
+        ) 
+    order by
+        childcomme0_.created_at asc
+2023-09-19 06:45:41.091 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [170]
+2023-09-19 06:45:41.091 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [173]
+2023-09-19 06:45:41.091 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [113]
+Hibernate: 
+    delete 
+    from
+        article_hashtag 
+    where
+        article_id=?
+2023-09-19 06:45:41.093 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.093 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [170]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.094 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [173]
+Hibernate: 
+    delete 
+    from
+        article_comment 
+    where
+        id=?
+2023-09-19 06:45:41.094 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [113]
+Hibernate: 
+    delete 
+    from
+        article 
+    where
+        id=?
+2023-09-19 06:45:41.095 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article article0_
+Hibernate: 
+    select
+        count(*) as col_0_0_ 
+    from
+        article_comment articlecom0_
+2023-09-19 06:45:41.098  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@9a6c67c, testMethod = givenTestData_whenDeleting_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2023-09-19 06:45:41.101  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@30cdd6f9, testMethod = givenTestData_whenUpdating_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3777e395]; rollback [true]
+Hibernate: 
+    select
+        article0_.id as id1_0_0_,
+        article0_.created_at as created_2_0_0_,
+        article0_.created_by as created_3_0_0_,
+        article0_.modified_at as modified4_0_0_,
+        article0_.modified_by as modified5_0_0_,
+        article0_.content as content6_0_0_,
+        article0_.title as title7_0_0_,
+        article0_.user_id as user_id8_0_0_,
+        useraccoun1_.user_id as user_id1_4_1_,
+        useraccoun1_.created_at as created_2_4_1_,
+        useraccoun1_.created_by as created_3_4_1_,
+        useraccoun1_.modified_at as modified4_4_1_,
+        useraccoun1_.modified_by as modified5_4_1_,
+        useraccoun1_.email as email6_4_1_,
+        useraccoun1_.memo as memo7_4_1_,
+        useraccoun1_.nickname as nickname8_4_1_,
+        useraccoun1_.user_password as user_pas9_4_1_ 
+    from
+        article article0_ 
+    inner join
+        user_account useraccoun1_ 
+            on article0_.user_id=useraccoun1_.user_id 
+    where
+        article0_.id=?
+2023-09-19 06:45:41.103 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    select
+        hashtags0_.article_id as article_1_1_1_,
+        hashtags0_.hashtag_id as hashtag_2_1_1_,
+        hashtag1_.id as id1_3_0_,
+        hashtag1_.created_at as created_2_3_0_,
+        hashtag1_.created_by as created_3_3_0_,
+        hashtag1_.modified_at as modified4_3_0_,
+        hashtag1_.modified_by as modified5_3_0_,
+        hashtag1_.hashtag_name as hashtag_6_3_0_ 
+    from
+        article_hashtag hashtags0_ 
+    inner join
+        hashtag hashtag1_ 
+            on hashtags0_.hashtag_id=hashtag1_.id 
+    where
+        hashtags0_.article_id=?
+2023-09-19 06:45:41.105 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+Hibernate: 
+    insert 
+    into
+        hashtag
+        (id, created_at, created_by, modified_at, modified_by, hashtag_name) 
+    values
+        (default, ?, ?, ?, ?, ?)
+2023-09-19 06:45:41.107 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2023-09-19T06:45:41.107528]
+2023-09-19 06:45:41.107 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [uno]
+2023-09-19 06:45:41.108 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [TIMESTAMP] - [2023-09-19T06:45:41.107528]
+2023-09-19 06:45:41.108 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [uno]
+2023-09-19 06:45:41.108 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [springboot]
+Hibernate: 
+    delete 
+    from
+        article_hashtag 
+    where
+        article_id=? 
+        and hashtag_id=?
+2023-09-19 06:45:41.109 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2023-09-19 06:45:41.110 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [11]
+Hibernate: 
+    insert 
+    into
+        article_hashtag
+        (article_id, hashtag_id) 
+    values
+        (?, ?)
+2023-09-19 06:45:41.110 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2023-09-19 06:45:41.110 TRACE 17372 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [21]
+2023-09-19 06:45:41.113  INFO 17372 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4d026a3a testClass = JpaRepositoryTest, testInstance = com.yeonew.readinggarden.repository.JpaRepositoryTest@30cdd6f9, testMethod = givenTestData_whenUpdating_thenWorksFine@JpaRepositoryTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5cacf095 testClass = JpaRepositoryTest, locations = '{}', classes = '{class com.yeonew.readinggarden.ReadingGardenApplication, class com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@18f6ccf4, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@68044f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@aca60bac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f390d63, [ImportsContextCustomizer@11e930e key = [com.yeonew.readinggarden.repository.JpaRepositoryTest$TestJpaConfig, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2374d36a, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1a45193b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
